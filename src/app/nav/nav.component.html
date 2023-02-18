@@ -2,7 +2,8 @@
     <div class="container">
         <a class="navbar-brand" href="#">Project Discite</a>
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
+
+            <li class="nav-item" *ngIf="accountService.currentUser$ | async">
               <a class="nav-link" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
@@ -12,7 +13,17 @@
               <a class="nav-link">News</a>
             </li>
           </ul>
-          <form #loginFrom="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+
+          <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+            <a class="dropdow-toggle text-light" dropdownToggle>Welcome user</a>
+            <div class="dropdown-menu mt-3" *dropdownMenu="">
+              <a class="dropdown-item">Edit Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </div>
+
+          <form *ngIf="(accountService.currentUser$ | async) === null" #loginFrom="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
             <input 
             name="email"
             [(ngModel)]="model.email"
