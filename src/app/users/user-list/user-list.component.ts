@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/Models/User';
+import { User } from 'src/app/Models/user';
 import { UsersService } from 'src/app/_services/users.service';
 import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs';
@@ -18,6 +18,13 @@ export class UserListComponent {
     this.loadUsers();
   }
   
+  loadUsers(){
+    this.userService.getUsers().subscribe(users=>{
+      this.users=users;
+    })
+  }
+
+
 /*
   loadUsers(){
     this.userService.getUsers().subscribe(users => {
@@ -27,6 +34,7 @@ export class UserListComponent {
     });
   }
   */
+ /*
   loadUsers() {
     this.userService.getUsers().pipe(
       map(event => event instanceof HttpResponse ? event.body : null)
@@ -39,5 +47,5 @@ export class UserListComponent {
       error => console.error(error)
     );
 }
-  
+  */
 }

@@ -9,10 +9,11 @@ import { User } from '../Models/user';
 })
 export class AccountService {
 baseUrl = environment.apiUrl;
- private currentUserSource = new ReplaySubject<User>(1);
- currentUser$ =this.currentUserSource.asObservable();
+private currentUserSource = new ReplaySubject<User>(1);
+currentUser$ =this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) { }
+  
 /*
   login(model:any){
     return this.http.post<User>(this.baseUrl+'Users/login'+'?' + encodeURI(`email=${model.email}&password=${model.password}`), null).pipe(
@@ -43,6 +44,7 @@ login(model: any) {
     map((response: User) => {
       const user = response;
       if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
         this.setCurrentUser(user);
       }
     })
@@ -53,6 +55,7 @@ register(model: any) {
   return this.http.post<User>(this.baseUrl + 'Users/register', model).pipe(
     map(user => {
       if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
         this.setCurrentUser(user);
       }
     })
