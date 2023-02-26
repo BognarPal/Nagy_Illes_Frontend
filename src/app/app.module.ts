@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ListsComponent } from './lists/lists.component';
 import { NewsComponent } from './news/news.component';
-import { SharedModule } from './_modules/shared.module';
+import { SharedModule } from './modules/shared.module';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
