@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/Models/User';
 import { UsersService } from 'src/app/_services/users.service';
+import { HttpEvent, HttpResponse } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -15,10 +17,27 @@ export class UserListComponent {
   ngOnInit(): void{
     this.loadUsers();
   }
-
+  
+/*
   loadUsers(){
-    this.userService.getUsers().subscribe(users=>{
-      this.users=users;
-    })
+    this.userService.getUsers().subscribe(users => {
+      if (localStorage.getItem('user') !== null) {
+        this.users = users;
+      }
+    });
   }
+  */
+  loadUsers() {
+    this.userService.getUsers().pipe(
+      map(event => event instanceof HttpResponse ? event.body : null)
+    ).subscribe(
+      users => {
+        if (localStorage.getItem('user') !== null) {
+          this.users = users;
+        }
+      },
+      error => console.error(error)
+    );
+}
+  
 }

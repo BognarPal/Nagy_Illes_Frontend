@@ -8,12 +8,12 @@ import { User } from '../Models/User';
   providedIn: 'root'
 })
 export class AccountService {
- baseUrl= environment.apiUrl;
+baseUrl = environment.apiUrl;
  private currentUserSource = new ReplaySubject<User>(1);
  currentUser$ =this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) { }
-
+/*
   login(model:any){
     return this.http.post<User>(this.baseUrl+'Users/login'+'?' + encodeURI(`email=${model.email}&password=${model.password}`), null).pipe(
       map((response: User) =>{
@@ -36,6 +36,30 @@ export class AccountService {
       })
     )
   }
+*/
+
+login(model: any) {
+  return this.http.post<User>(this.baseUrl + 'Users/login', model).pipe(
+    map((response: User) => {
+      const user = response;
+      if (user) {
+        this.setCurrentUser(user);
+      }
+    })
+  )
+}
+
+register(model: any) {
+  return this.http.post<User>(this.baseUrl + 'Users/register', model).pipe(
+    map(user => {
+      if (user) {
+        this.setCurrentUser(user);
+      }
+    })
+  )
+} 
+
+
 
   setCurrentUser(user: User){
     this.currentUserSource.next(user);

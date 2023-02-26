@@ -3,6 +3,4 @@ export interface User{
     username: string;
     email: string;
     token: string;
-    registerDate: Date;
-    lastActive: Date;
 }
