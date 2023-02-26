@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, ReplaySubject } from 'rxjs';
 import { environment } from 'src/Enviroments/environment';
-import { User } from '../Models/User';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
