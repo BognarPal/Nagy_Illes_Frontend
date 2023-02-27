@@ -8,20 +8,20 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {
-    path:'',
+  
+    {path: '', component: HomeComponent},
+    {path:'',
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children:[
+      
       {path: 'users', component: UserListComponent, canActivate: [AuthGuard]},
       {path: 'users/:id', component: UserDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'news', component: NewsComponent},
       {path: '**', component: HomeComponent, pathMatch: "full"},
     ]
-  },
-  
+    }
 
 ];
 

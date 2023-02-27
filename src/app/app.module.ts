@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './Components/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,7 @@ import { NewsComponent } from './news/news.component';
 import { SharedModule } from './modules/shared.module';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
+/*import { AuthInterceptor } from './services/users.service';*/
 
 
 
@@ -35,7 +36,9 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
     FormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    /*{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }*/
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

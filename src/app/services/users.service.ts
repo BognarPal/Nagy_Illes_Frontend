@@ -1,8 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/Enviroments/environment';
+import { AuthGuard } from '../guards/auth.guard';
 import { User } from '../Models/user';
 
 
@@ -20,12 +21,24 @@ if (user && user.token) {
 
   const httpOptions= {
     headers: new HttpHeaders({
-      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))/*.token*/
     })
   }
-
-
-
+  /*
+  @Injectable()
+  export class AuthInterceptor implements HttpInterceptor {
+    constructor(private authService: AuthGuard) {}
+  
+    intercept(request: HttpRequest<any>, next: HttpHandler) {
+      const authToken = this.authService.canActivate();
+      const authRequest = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${authToken}`)
+      });
+  
+      return next.handle(authRequest);
+    }
+  }
+*/
 
 @Injectable({
   providedIn: 'root'
