@@ -3,7 +3,6 @@ import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/Enviroments/environment';
-import { AuthGuard } from '../guards/auth.guard';
 import { UserModel } from '../models';
 
 
