@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { UserModel } from 'src/app/models';
 import { UsersService } from 'src/app/services/users.service';
 import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs';
@@ -10,7 +10,7 @@ import { map } from 'rxjs';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  users: User[];
+  users: UserModel[];
 
   constructor(private userService: UsersService){}
 

@@ -12,7 +12,7 @@ import {
   NewsComponent,
   ListsComponent,
   HomeComponent
-} from './components';
+} from './Components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './modules/shared.module';

@@ -7,7 +7,7 @@ import {
   NewsComponent,
   UserDetailComponent,
   UserListComponent
-} from './components';
+} from './Components';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
