@@ -4,7 +4,6 @@ import {
   HomeComponent,
   ListsComponent,
   NewsComponent,
-  UserDetailComponent,
   UserListComponent
 } from './Components';
 
@@ -15,7 +14,6 @@ const routes: Routes = [
     children:[
       
       {path: 'users', component: UserListComponent, },
-      {path: 'users/:id', component: UserDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'news', component: NewsComponent},
       {path: '**', component: HomeComponent, pathMatch: "full"},

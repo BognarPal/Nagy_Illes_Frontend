@@ -1,6 +1,25 @@
- <div class="row">
-    <div *ngFor="let user of users" class="col-2">
-       <app-user-card [user]="user"></app-user-card>
-    </div>
+<table class="table">
+   <thead>
+     <tr >
+      <th scope="col">Id</th>
+       <th scope="col">Username</th>
+       <th scope="col">Email</th>
+       <th scope="col">Register Date</th>
+       <th scope="col">Last Active</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let user of users" >
+      <td>{{user.id}}</td>
+       <td>{{user.username}}</td>
+       <td>{{user.email}}</td>
+       <td>{{user.registerDate}}</td>
+       <td>{{user.lastActive}}</td>
+     </tr>      
+   </tbody>
+</table>
+<div>
+   <button [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+   <span>{{currentPage}} / {{totalPages}}</span>
+   <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
  </div>
-
