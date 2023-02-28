@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent {
+user:User;
+
+constructor(private usersService: UsersService, private route: ActivatedRoute){}
+
+ngOnInit(): void{
+this.loadUser();
+}
+
+loadUser(){
+  this.usersService.getUser(this.route.snapshot.paramMap.get("username")).subscribe(user=>{
+    this.user=user;
+  })
+}
 
 }

@@ -13,6 +13,9 @@ import { NewsComponent } from './news/news.component';
 import { SharedModule } from './modules/shared.module';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UserCardComponent } from './users/user-card/user-card.component';
+import { InterceptorsComponent } from './interceptors/interceptors.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 /*import { AuthInterceptor } from './services/users.service';*/
 
 
@@ -27,6 +30,8 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
     NewsComponent,
     UserListComponent,
     UserDetailComponent,
+    UserCardComponent,
+    InterceptorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
     SharedModule
   ],
   providers: [
-    /*{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }*/
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

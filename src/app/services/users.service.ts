@@ -7,39 +7,6 @@ import { AuthGuard } from '../guards/auth.guard';
 import { User } from '../Models/user';
 
 
-/*
-const user = JSON.parse(localStorage.getItem('user'));
-
-if (user && user.token) {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      Authorization: 'Bearer ' + user.token
-    })
-  }
-  };
-  */
-
-  const httpOptions= {
-    headers: new HttpHeaders({
-      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))/*.token*/
-    })
-  }
-  /*
-  @Injectable()
-  export class AuthInterceptor implements HttpInterceptor {
-    constructor(private authService: AuthGuard) {}
-  
-    intercept(request: HttpRequest<any>, next: HttpHandler) {
-      const authToken = this.authService.canActivate();
-      const authRequest = request.clone({
-        headers: request.headers.set('Authorization', `Bearer ${authToken}`)
-      });
-  
-      return next.handle(authRequest);
-    }
-  }
-*/
-
 @Injectable({
   providedIn: 'root'
 })
@@ -49,11 +16,11 @@ baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get<User[]>(this.baseUrl + 'users', httpOptions);
+    return this.http.get<User[]>(this.baseUrl + 'users');
   }
 
   getUser(username){
-    return this.http.get<User>(this.baseUrl + 'users/'+ username, httpOptions);
+    return this.http.get<User>(this.baseUrl + 'users/'+ username);
   }
   
 }
