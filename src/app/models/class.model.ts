@@ -1,4 +1,4 @@
-export interface ClassStats {
+export interface ClassModel {
     id: number;
     owned: number;
     used: number;

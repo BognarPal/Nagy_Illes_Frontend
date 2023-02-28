@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { User } from '../Models/user';
-import { AccountService } from '../services/account.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -33,9 +32,4 @@ export class NavComponent implements OnInit {
     this.accountService.logout();
     this.router.navigateByUrl('/')
   }
-
 }
-
-
-
-

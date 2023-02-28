@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
-import { HomeComponent } from './home/home.component';
-import { ListsComponent } from './lists/lists.component';
-import { NewsComponent } from './news/news.component';
-import { UserDetailComponent } from './users/user-detail/user-detail.component';
-import { UserListComponent } from './users/user-list/user-list.component';
+import {
+  HomeComponent,
+  ListsComponent,
+  NewsComponent,
+  UserDetailComponent,
+  UserListComponent
+} from './components';
 
 const routes: Routes = [
-  
     {path: '', component: HomeComponent},
     {path:'',
     runGuardsAndResolvers: 'always',
@@ -21,8 +22,7 @@ const routes: Routes = [
       {path: 'news', component: NewsComponent},
       {path: '**', component: HomeComponent, pathMatch: "full"},
     ]
-    }
-
+  }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/Models/user';
+import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 import { HttpEvent, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs';

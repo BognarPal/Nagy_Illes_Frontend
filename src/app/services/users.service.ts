@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/Enviroments/environment';
 import { AuthGuard } from '../guards/auth.guard';
-import { User } from '../Models/user';
+import { UserModel } from '../models';
 
 
 @Injectable({
@@ -16,11 +16,10 @@ baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get<User[]>(this.baseUrl + 'users');
+    return this.http.get<UserModel[]>(this.baseUrl + 'users');
   }
 
-  getUser(username){
-    return this.http.get<User>(this.baseUrl + 'users/'+ username);
+  getUser(id){
+    return this.http.get<UserModel>(this.baseUrl + 'users/'+ id);
   }
-  
 }

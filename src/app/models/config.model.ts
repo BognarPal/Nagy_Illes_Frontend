@@ -29,7 +29,7 @@ export interface Artifact {
     maxLevel: number;
 }
 
-export interface Configuration {
+export interface ConfigModel {
     weapons: Weapon[];
     enemies: Enemy[];
     classes: Class[];
