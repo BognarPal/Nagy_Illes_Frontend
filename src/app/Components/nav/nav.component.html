@@ -1,0 +1,51 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item" >
+              <a class="navbar-brand" routerLink="/" routerLinkActive="active">Project Discite</a>
+            </li>
+
+            <ul class="class navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+            <ng-container >
+              
+              <li class="nav-item">
+              <a class="nav-link " routerLink="/users" routerLinkActive="active">User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/lists" routerLinkActive="active">Top-Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/news" routerLinkActive="active">News</a>
+            </li>
+          
+          </ng-container>
+              
+          </ul>
+          </ul>
+
+          <div class="dropdown" *ngIf="(accountService.currentUser$  | async) as user" dropdown>
+            <a class="dropdown-toggle text-light text-decoration-none ms-2" dropdownToggle>Welcome {{user.username}}</a>
+            <div class="dropdown-menu mt-3" *dropdownMenu>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+
+          <form *ngIf="(accountService.currentUser$ | async) === null" #loginFrom="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+            <input 
+            name="email"
+            [(ngModel)]="model.email"
+            class="form-control me-2" 
+            type="email" 
+            placeholder="Email" >
+            <input 
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control me-2" 
+            type="password" 
+            placeholder="Password" >
+            <button class="btn btn-outline-success" type="submit">Login</button>
+          </form>
+        </div>
+  </nav>
+  

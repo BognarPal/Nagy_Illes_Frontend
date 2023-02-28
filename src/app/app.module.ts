@@ -1,21 +1,51 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './Components/app.component';
+import {
+  AppComponent,
+  NavComponent,
+  RegisterComponent,
+  UserListComponent,
+  UserDetailComponent,
+  UserCardComponent,
+  NewsComponent,
+  ListsComponent,
+  HomeComponent
+} from './Components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from './modules/shared.module';
+import { InterceptorsComponent } from './interceptors/interceptors.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+/*import { AuthInterceptor } from './services/users.service';*/
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    RegisterComponent,
+    ListsComponent,
+    NewsComponent,
+    UserListComponent,
+    UserDetailComponent,
+    UserCardComponent,
+    InterceptorsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

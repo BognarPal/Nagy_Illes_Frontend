@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../models';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../app.component.html',
-  styleUrls: ['../app.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'Project Discite';
@@ -12,18 +14,18 @@ export class AppComponent implements OnInit {
   //Az user bármi lehet string, int stb
   users:any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(){
-    this.getUsers();
+    
+    this.setCurrentUser()
   }
 
-  getUsers(){
-    this.http.get('http://localhost:5241/api/Users').subscribe(response=>{
-      this.users= response;
-    }, error=>{
-      console.log(error);
-    })
+  setCurrentUser() {
+    const userString = localStorage.getItem('user');
+    if (!userString) return;
+    const user: UserModel = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
   }
 }
 
