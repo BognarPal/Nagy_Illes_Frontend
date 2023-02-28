@@ -10,7 +10,10 @@ import { map } from 'rxjs';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  users: UserModel[];
+  users: UserModel[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
+  totalPages: number;
 
   constructor(private userService: UsersService){}
 
@@ -18,12 +21,32 @@ export class UserListComponent {
     this.loadUsers();
   }
   
+ 
+
+
   loadUsers(){
-    this.userService.getUsers().subscribe(users=>{
-      this.users=users;
-    })
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.userService.getUsers().subscribe(users => {
+      this.totalPages = Math.ceil(users.length / this.itemsPerPage);
+      this.users = users.slice(startIndex, endIndex);
+    }
+      
+    )
+  }
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.loadUsers();
+    }
   }
 
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.loadUsers();
+    }
+  }
 
 /*
   loadUsers(){

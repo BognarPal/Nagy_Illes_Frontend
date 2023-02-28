@@ -4,6 +4,5 @@ export * from './nav/nav.component';
 export * from './news/news.component';
 export * from './register/register.component';
 export * from './app.component';
-export * from './users/user-card/user-card.component';
-export * from './users/user-detail/user-detail.component';
+
 export * from './users/user-list/user-list.component';

@@ -7,8 +7,6 @@ import {
   NavComponent,
   RegisterComponent,
   UserListComponent,
-  UserDetailComponent,
-  UserCardComponent,
   NewsComponent,
   ListsComponent,
   HomeComponent
@@ -31,8 +29,6 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     ListsComponent,
     NewsComponent,
     UserListComponent,
-    UserDetailComponent,
-    UserCardComponent,
     InterceptorsComponent,
   ],
   imports: [
