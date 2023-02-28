@@ -18,7 +18,7 @@ this.loadUser();
 }
 
 loadUser(){
-  this.usersService.getUser(this.route.snapshot.paramMap.get("username")).subscribe(user=>{
+  this.usersService.getUser(this.route.snapshot.paramMap.get("id")).subscribe(user=>{
     this.user=user;
   })
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
     children:[
       
       {path: 'users', component: UserListComponent, canActivate: [AuthGuard]},
-      {path: 'users/:username', component: UserDetailComponent},
+      {path: 'users/:id', component: UserDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'news', component: NewsComponent},
       {path: '**', component: HomeComponent, pathMatch: "full"},
