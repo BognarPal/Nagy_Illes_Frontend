@@ -40,7 +40,7 @@ register(model: any) {
 
 
 
-  setCurrentUser(user: UserModel){
+  setCurrentUser(user: UserModel,){
     this.currentUserSource.next(user);
   }
 

@@ -9,6 +9,7 @@ import {
   UserListComponent,
   NewsComponent,
   ListsComponent,
+  ProfileEditComponent,
   HomeComponent
 } from './Components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './modules/shared.module';
 import { InterceptorsComponent } from './interceptors/interceptors.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+
 /*import { AuthInterceptor } from './services/users.service';*/
 
 
@@ -30,6 +32,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     NewsComponent,
     UserListComponent,
     InterceptorsComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,
