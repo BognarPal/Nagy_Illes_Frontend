@@ -1,1 +1,12 @@
-<p>profile-edit works!</p>
+<form>
+<label>Username</label>
+  <input type="text" name="username" [(ngModel)]="username">
+
+  <label>Email</label>
+  <input type="email" name="email" [(ngModel)]="email">
+
+  <label>Password</label>
+  <input type="password" name="password" [(ngModel)]="password">
+
+  <button type="submit" (click)="submitProfile()">Update</button>
+</form>

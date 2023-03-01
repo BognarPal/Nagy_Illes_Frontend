@@ -4,6 +4,7 @@ import {
   HomeComponent,
   ListsComponent,
   NewsComponent,
+  ProfileEditComponent,
   UserListComponent
 } from './Components';
 
@@ -12,7 +13,7 @@ const routes: Routes = [
     {path:'',
     runGuardsAndResolvers: 'always',
     children:[
-      
+      {path: 'edit', component: ProfileEditComponent, },
       {path: 'users', component: UserListComponent, },
       {path: 'lists', component: ListsComponent},
       {path: 'news', component: NewsComponent},
