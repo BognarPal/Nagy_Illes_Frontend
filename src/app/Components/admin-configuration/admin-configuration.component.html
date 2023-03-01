@@ -1,1 +1,76 @@
-<p>admin-configuration works!</p>
+<table>
+    <thead>
+      <tr>
+        <h1>Weapons</h1>
+        <th>Name</th>
+        <th>Damage</th>
+        <th>Attack Speed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let weapon of config.weapons">
+        <td>{{ weapon.name }}</td>
+        <td>{{ weapon.damage }}</td>
+        <td>{{ weapon.attackSpeed }}</td>
+      </tr>
+    </tbody>
+
+    <thead>
+        <tr>
+            <h2>Enemy</h2>
+          <th>Name</th>
+          <th>maxHp</th>
+          <th>damage</th>
+          <th>energy</th>
+          <th>speed</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enemy of config.enemies">
+          <td>{{ enemy.name }}</td>
+          <td>{{ enemy.maxHp }}</td>
+          <td>{{ enemy.damage }}</td>
+          <td>{{ enemy.energy }}</td>
+          <td>{{ enemy.speed }}</td>
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+            <h2>Class</h2>
+          <th>Name</th>
+          <th>maxHp</th>
+          <th>damage</th>
+          <th>energy</th>
+          <th>speed</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let class of config.classes">
+          <td>{{ class.name }}</td>
+          <td>{{ class.maxHp }}</td>
+          <td>{{ class.damage }}</td>
+          <td>{{ class.energy }}</td>
+          <td>{{ class.speed }}</td>
+        </tr>
+      </tbody>
+
+      <thead>
+        <tr>
+            <h2>Artifact</h2>
+          <th>Name</th>
+          <th>Maxlevel</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let artifact of config.artifacts">
+          <td>{{ artifact.name }}</td>
+          <td>{{ artifact.maxLevel }}</td>
+        </tr>
+      </tbody>
+
+  </table> 
+ 
