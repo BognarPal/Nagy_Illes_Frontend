@@ -10,13 +10,13 @@
             <ul class="class navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
             <ng-container >
               
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="(accountService.currentUser$ | async)?.id == 0">
               <a class="nav-link " routerLink="/users" routerLinkActive="active">User</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"  >
               <a class="nav-link" routerLink="/lists" routerLinkActive="active">Top-Lists</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="(accountService.currentUser$ | async)?.id == 0">
               <a class="nav-link" routerLink="/config" routerLinkActive="active">Configuration</a>
             </li>
             <li class="nav-item">
