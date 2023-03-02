@@ -10,7 +10,7 @@
    </thead>
    <tbody>
      <tr *ngFor="let user of users" >
-      <td>{{user.id}}</td>
+      <td >{{user.id}}</td>
        <td>{{user.username}}</td>
        <td>{{user.email}}</td>
        <td>{{user.registerDate}}</td>
@@ -19,7 +19,15 @@
    </tbody>
 </table>
 <div>
-   <button [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+  <ul class="pagination pagination-sm">
+    <li class="page-item active "> 
+   <button [disabled]="currentPage === 1" (click)="prevPage()" class="page-link" >Prev</button>
+  </li>
+
    <span>{{currentPage}} / {{totalPages}}</span>
-   <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+   
+   <li class="page-item active"> 
+   <button [disabled]="currentPage === totalPages" (click)="nextPage()" class="page-link">Next</button>
+  </li>
+  </ul>
  </div>
