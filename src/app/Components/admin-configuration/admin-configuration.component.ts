@@ -21,8 +21,11 @@ export class AdminConfigurationComponent {
       this.config = config;
     });
   }
-
+  
   onSave() {
-    this.configurationService.updateConfig(this.config).subscribe();
+    this.configurationService.updateConfig(this.config).subscribe(
+      () => console.log('Configuration updated successfully'),
+      error => console.error('Error updating configuration', error)
+    );
   }
 }
