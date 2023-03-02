@@ -21,8 +21,6 @@ export class UserListComponent {
     this.loadUsers();
   }
   
- 
-
 
   loadUsers(){
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
