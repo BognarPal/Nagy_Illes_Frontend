@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
+  AdminConfigurationComponent,
   HomeComponent,
   ListsComponent,
   NewsComponent,
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path:'',
     runGuardsAndResolvers: 'always',
     children:[
+      {path: 'config', component: AdminConfigurationComponent, },
       {path: 'edit', component: ProfileEditComponent, },
       {path: 'users', component: UserListComponent, },
       {path: 'lists', component: ListsComponent},
