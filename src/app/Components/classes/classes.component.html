@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4" *ngFor="let class of classes">
+    <div class="col-md-4" *ngFor="let class of classesWithStats">
       <div class="card mb-4">
         <img [src]="'../../../assets/images/' + class.id + '.png'" class="card-img-top" alt="{{ class.name }}">
         <div class="card-body">
@@ -9,13 +9,12 @@
             Damage: {{ class.damage }}<br>
             Energy: {{ class.energy }}<br>
             Speed: {{ class.speed }}<br>
-            Owned: {{ class1.owned }}<br>
-            Used: {{ class1.used }}<br>
-            Kills: {{ class1.kills }}<br>
-            Deaths: {{ class1.deaths }}
+            Owned: {{ class.owned }}<br>
+            Used: {{ class.used }}<br>
+            Kills: {{ class.kills }}<br>
+            Deaths: {{ class.deaths }}
           </p>
         </div>
       </div>
     </div>
   </div>
-  
