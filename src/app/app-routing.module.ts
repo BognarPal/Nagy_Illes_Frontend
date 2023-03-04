@@ -8,12 +8,14 @@ import {
   ProfileEditComponent,
   UserListComponent
 } from './Components';
+import { ClassesComponent } from './Components/classes/classes.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path:'',
     runGuardsAndResolvers: 'always',
     children:[
+      {path: 'class', component: ClassesComponent, },
       {path: 'config', component: AdminConfigurationComponent, },
       {path: 'edit', component: ProfileEditComponent, },
       {path: 'users', component: UserListComponent, },

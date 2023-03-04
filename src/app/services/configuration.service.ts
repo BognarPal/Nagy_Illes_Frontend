@@ -13,6 +13,8 @@ export class ConfigurationService {
 
   constructor(private http: HttpClient) { }
 
+ 
+
   getConfig(): Observable<ConfigModel> {
     return this.http.get<ConfigModel>(this.baseUrl + 'Configuration');
   }
